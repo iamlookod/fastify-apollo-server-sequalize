@@ -13,7 +13,7 @@
     "db:migration:generate": "ts-node node_modules/.bin/sequelize migration:generate --name",
     "db:undo": "ts-node node_modules/.bin/sequelize migration:undo",
     "db:migration:undo:all": "ts-node node_modules/.bin/sequelize migration:undo:all",
-    "db:seed": "ts-node node_modules/.bin/sequelize seed",
+    "db:seed": "ts-node node_modules/.bin/sequelize seed --name",
     "db:seed:all": "ts-node node_modules/.bin/sequelize seed:all",
     "db:seed:generate": "ts-node node_modules/.bin/sequelize seed:generate --name",
     "db:seed:undo": "ts-node node_modules/.bin/sequelize seed:undo"

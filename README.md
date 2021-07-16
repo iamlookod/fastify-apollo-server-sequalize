@@ -34,3 +34,25 @@ $ npm run start:prod
 # run db
 $ docker compose up db
 ```
+
+## Database
+
+```bash
+# run migration
+$ npm run db:migration
+
+# run revert migration
+$ npm run db:migration:undo
+
+# create migration
+$ npm run db:migration:generate [name]
+
+# run seed
+$ npm run db:seed:all
+
+# run revert seed
+$ npm run db:seed:undo
+
+# create seed
+$ npm run db:seed:generate [name]
+```
