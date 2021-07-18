@@ -1,7 +1,5 @@
-import config from '../config'
+import config from "../config";
 
 const { database } = config;
 
-export default {
-  ...database
-};
+module.exports = database

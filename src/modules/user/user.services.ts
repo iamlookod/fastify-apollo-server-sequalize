@@ -1,14 +1,33 @@
-const users = [
-  {
-    title: "The Awakening",
-    author: "Kate Chopin",
-  },
-  {
-    title: "City of Glass",
-    author: "Paul Auster",
-  },
-];
+import User from './user.model'
+import { UserLogin, UserArgs } from './user.type';
 
-export const listUsers = () => users;
+export const login = async ({ username, password }: UserLogin): Promise<User> => {
+  const user = await User.findOne({ where: { username, password } });
 
-export const user = (title: string) => users.find((book) => book.title === title);
+  if (!user) {
+    throw new Error("username or password incorrect");
+  }
+
+  return user;
+};
+
+export const register = async ({ username, password, name }: UserArgs): Promise<User> => {
+  // Find if there is an existing account
+  const user = await User.findOne({ where: { username } });
+
+  if (user) {
+    throw new Error("username exists");
+  }
+
+  const newUser = await User.create({
+    name,
+    username,
+    password,
+  });
+
+  return newUser;
+};
+
+// const checkExistUser = (username: string) => {
+
+// }

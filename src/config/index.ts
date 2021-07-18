@@ -1,13 +1,19 @@
+
 import * as dotenv from 'dotenv';
 import { Options } from 'sequelize/types'
 
 dotenv.config();
 
 interface IConfig {
+  port: number;
+  jwtSecret: string;
   database: Options
+  gqlPath: string;
 }
 
 const config: IConfig = {
+  port: Number(process.env.PORT) || 3000,
+  jwtSecret: process.env.JWT_SECRET || "secret",
   database: {
     dialect: "postgres",
     host: process.env.DB_HOST || "localhost",
@@ -23,6 +29,7 @@ const config: IConfig = {
       idle: 10000,
     },
   },
+  gqlPath: "/api/graphql",
 };
 
 export default config;
